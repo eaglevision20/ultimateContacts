@@ -5,6 +5,7 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
+    "bcrypt": "^0.8.1",
     "ejs": "~0.8.4",
     "grunt": "0.4.2",
     "grunt-contrib-clean": "~0.5.0",
@@ -22,6 +23,7 @@
     "lodash": "^2.4.1",
     "pluralize": "^1.1.2",
     "rc": "~0.5.0",
+    "s3-policy": "^0.2.0",
     "sails": "~0.10.5",
     "sails-disk": "~0.10.0",
     "sails-generate-ember-blueprints": "0.0.2",
@@ -34,8 +36,8 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/john/burningsail.git"
+    "url": "git://github.com/john/ultimateContacts.git"
   },
-  "author": "john",
+  "author": "John McGovern",
   "license": ""
 }
