@@ -6,8 +6,6 @@
 */
 
 module.exports = {
-
-  attributes: {
   	schema: true,
   	attributes: {
         
@@ -16,7 +14,7 @@ module.exports = {
         imageUrl: {
             type: 'string',
         },
-  		
+
         firstName: {
             type: 'string',
             maxLength: 80,
@@ -48,6 +46,5 @@ module.exports = {
         	type: 'array'
         }
   	}
-  }
 };
 

@@ -1,14 +1,17 @@
 /**
 * User.js
 *
-* @description :: TODO: You might write a short summary of how this model works and what it represents here.
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
 module.exports = {
-
-  schema: true,
+  	schema: true,
     attributes: {
+
+    	contacts: { 
+            collection: 'contact',
+          	via: 'user'
+        },
 
         imageUrl: {
             type: 'string',
@@ -35,11 +38,6 @@ module.exports = {
         phoneNumber: {
             type: 'string',
             // required: true
-        },
-
-        contacts: { 
-            collection: 'Contact',
-          via: 'user'
         },
 
         isAdmin: {
