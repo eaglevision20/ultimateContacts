@@ -1,0 +1,17 @@
+{{#if session.content.access_token}}
+  <li>
+    <a {{ action 'invalidateSession' }}>Logout</a>
+  </li>
+{{else}}
+  <li>
+  {{#link-to 'login'}}Login{{/link-to}}
+  </li>
+{{/if}}
+{{#if session.content.siteAdmin}}
+  <li>
+  {{#link-to 'admin'}}Site Administration{{/link-to}}
+  </li>
+{{/if}}
+<h2 id="title">Welcome to Ember.js</h2>
+
+{{outlet}}

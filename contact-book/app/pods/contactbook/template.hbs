@@ -1,1 +1,9 @@
+
+<h3>Hello {{user.firstName}}</h3>
+<div class="contact-list">
+	<h4>Show Each contact here</h4>
+	{{#link-to 'contactbook.create'}}
+		Create New Contact
+	{{/link-to}}
+</div>
 {{outlet}}
