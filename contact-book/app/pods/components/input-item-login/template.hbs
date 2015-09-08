@@ -1,0 +1,12 @@
+<div class="form-group col-xs-12">
+  {{#if yield}}
+  <label class="col-sm-4 control-label"><h4>{{yield}}</h4></label>
+  <div class="col-sm-8">
+    {{input typeBinding='type' class="form-control text-center" placeholder=placeholder value=value}}
+  </div>
+  {{else}}
+  <div class="col-sm-12">
+    {{input typeBinding='type' class="form-control text-center" placeholder=placeholder value=value}}
+  </div>
+  {{/if}}
+</div>
