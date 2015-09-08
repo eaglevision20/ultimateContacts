@@ -12,19 +12,20 @@ export default Ember.Controller.extend({
 	message: null,
 
 	actions: {
-		createUser: function () {
+		createContact: function () {
 			var self = this,
 				testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i,
 				testNum = /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/i,
 				formErrors = [],
 				contact = {
+					user: this.get('session.content.userId'),
 					firstName: this.get('firstName'),
 					lastName: this.get('lastName'),
 					imageUrl: this.get('imageUrl'),
 					email: this.get('email'),
 					phoneNumber: this.get('phoneNumber'),
-					tags: this.get('tags'),
-					groups: this.get('groups')
+					tags: this.get('tags').split(" ,"),
+					groups: this.get('groups').split(" ,")
 				};
 
 			if(contact.firstName.length < 2){
@@ -39,17 +40,10 @@ export default Ember.Controller.extend({
 				formErrors.push('Please Provide a Valid Email');
 			}
 
-			if(!testNum.test(contact.phoneNumber)){
+			if(contact.phoneNumber.length > 1 && !testNum.test(contact.phoneNumber)){
 				formErrors.push('Please Provide a Valid Phone Number');
 			}
 
-			if(contact.password.length < 4){
-				formErrors.push('Please Provide a Password of at Least 4 Characters');
-			}
-
-			if(contact.password != this.get('verifyPW')){
-				formErrors.push('The Entered Passwords Do Not Match');
-			}
 
 			this.set('formErrors',formErrors);
 			
@@ -60,14 +54,15 @@ export default Ember.Controller.extend({
                     'imageUrl': null,
                     'email': null,
                     'phoneNumber': null,
-                    'password': null,
+                    'tags': null,
+                    'groups': null,
                 });
-                self.send('setMessage', "User Created Successfully.");
+                self.send('setMessage', "Contact Created Successfully.");
             };
 
             var onFail = function(error) {
                 console.log(error.responseJSON.invalidAttributes)
-                self.send('setMessage', "User failed to save. Please double check all fields are filled out.");
+                self.send('setMessage', "Contact failed to save. Please double check all fields are filled out.");
             };
 
 			if(!Ember.isEmpty(formErrors)){
