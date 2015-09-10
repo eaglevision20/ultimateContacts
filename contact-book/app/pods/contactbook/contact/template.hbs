@@ -1,7 +1,13 @@
 <div class="contact">
-  <img {{bind-attr src="model.imageUrl"}} style="max-width:50%;">
-  {{#file-upload owner=session.content.userId linkBinding="model.imageUrl"}}
-  {{/file-upload}}
+  <div class="image">
+    {{#if model.imageUrl}}
+      <img {{bind-attr src="model.imageUrl"}} style="max-width:50%;">
+    {{else}}
+      <h3>Click Below to Upload an Image</h3>
+    {{/if}}
+    {{#file-upload owner=session.content.userId linkBinding="model.imageUrl"}}
+    {{/file-upload}}
+  </div>
   <div class="field">
     <label class="">First Name</label>
     <div class="">
