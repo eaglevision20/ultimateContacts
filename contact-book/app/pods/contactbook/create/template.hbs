@@ -1,5 +1,8 @@
 <div class="contact">
   <h2>Create a Contact</h2>
+  <img {{bind-attr src="imageUrl"}} style="max-width:50%;">
+  {{#file-upload owner=session.content.userId linkBinding="imageUrl"}}
+  {{/file-upload}}
   <div class="field">
     <label class="">First Name</label>
     <div class="">

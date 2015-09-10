@@ -1,4 +1,7 @@
 <div class="contact">
+  <img {{bind-attr src="model.imageUrl"}} style="max-width:50%;">
+  {{#file-upload owner=session.content.userId linkBinding="model.imageUrl"}}
+  {{/file-upload}}
   <div class="field">
     <label class="">First Name</label>
     <div class="">

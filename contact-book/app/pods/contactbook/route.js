@@ -12,9 +12,4 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 	// 	console.log('here')
 	// 	return this.store.find('company', this.get('session').content.companyId);
 	// }.property(),
-	userId: function () {
-		console.log('getting ID')
-		return this.get('session').content.userId;
-	}.property(),
-	
 });
