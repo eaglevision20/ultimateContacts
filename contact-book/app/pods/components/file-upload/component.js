@@ -31,7 +31,6 @@ export default FileField.extend({
       // S3 will return XML with url
       var uploadedUrl = $(response).find('Location')[0].textContent;
       uploadedUrl = decodeURIComponent(uploadedUrl); // => http://yourbucket.s3.amazonaws.com/file.png
-      console.log("Path To image:", uploadedUrl);
       self.set('link', uploadedUrl);
       self.set('progress', null);
     });

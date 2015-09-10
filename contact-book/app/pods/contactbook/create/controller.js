@@ -56,7 +56,6 @@ export default Ember.Controller.extend({
 				formErrors.push('Please Provide a Valid Phone Number');
 			}
 
-			debugger
 			this.set('formErrors',formErrors);
 			
 			var onSuccess = function(contact) {
@@ -69,13 +68,11 @@ export default Ember.Controller.extend({
                     'tags': null,
                     'groups': null,
                 });
-                console.log(contact);
                 contactbook.get('extras').pushObject(contact);
                 self.send('setMessage', "Contact Created Successfully.");
             };
 
             var onFail = function(error) {
-                console.log(error.responseJSON.invalidAttributes)
                 self.send('setMessage', "Contact failed to save. Please double check all fields are filled out.");
             };
 
