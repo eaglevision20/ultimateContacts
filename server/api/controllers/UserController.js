@@ -7,11 +7,12 @@
 
 module.exports = {
 	login: function (req, res) {
-	    var bcrypt = require('bcrypt');
+	    console.log('found the api');
+      var bcrypt = require('bcrypt');
 	    if(typeof req.body.username === undefined || req.body.username === '' || req.body.password === ''){
 	      	res.json(
 	        	{ 
-	          		error: 'Please complete the entire form before submitting it.'
+	          		error: 'Please complete the entire form before submitting.'
 	        	}, 404);
 	    }
 

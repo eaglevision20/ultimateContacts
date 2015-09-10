@@ -21,6 +21,6 @@ Landing Page with Basic Info and likes to login
 - Display List
 - Create New
 
-/contactbook/:contactId
+/contactbook/contact/:contactId
 - Edit Fields
 - Delete Record and redirect to /contactbook

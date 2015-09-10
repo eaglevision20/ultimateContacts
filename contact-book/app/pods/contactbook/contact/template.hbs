@@ -1,0 +1,45 @@
+<div class="contact">
+  <div class="field">
+    <label class="">First Name</label>
+    <div class="">
+      {{input type="text" class="input" placeholder="" value=model.firstName }}
+    </div>
+  </div>
+  <div class="field">
+    <label class="">Last Name</label>
+    <div class="">
+      {{input type="text" class="input" placeholder="" value=model.lastName }}
+    </div>
+  </div>
+  <div class="field">
+    <label class="">Email Address</label>
+    <div class="">
+      {{input type="text" class="input" placeholder="" value=model.email }}
+    </div>
+  </div>
+  <div class="field">
+    <label class="">Phone Number</label>
+    <div class="">
+      {{input type="text" class="input" placeholder="" value=model.phoneNumber }}
+    </div>
+  </div>
+  <div class="field">
+    <label class="">Tags</label>
+    <div class="">
+      {{input type="text" class="input" placeholder="" value=model.tags }}
+    </div>
+  </div>
+  <div class="field">
+    <label class="">Groups</label>
+    <div class="">
+      {{input type="text" class="input" placeholder="" value=model.groups }}
+    </div>
+  </div>
+  {{#if formErrors}}
+    <h2>Please Fix the following errors</h2>
+  {{/if}}
+  {{#each formErrors as |error|}}
+    <h4>{{error}}</h4>
+  {{/each}}
+  <button {{action 'saveContact'}}>Save Changes</button><button {{action 'deleteContact'}}>Delete Contact</button>
+</div>

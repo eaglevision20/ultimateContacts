@@ -1,0 +1,32 @@
+<div class="login">
+  <h1>Login</h1>
+  <hr>
+  <form {{action 'authenticate' on='submit'}}>
+    <div class="half-width">
+      {{#input-item-login value=identification placeholder='Enter Email Address' type='text' }}
+        Login
+      {{/input-item-login}}
+    </div>
+    <div class="half-width">
+      {{#input-item-login value=password placeholder='Enter Password' type='password'}}
+        Password
+      {{/input-item-login}}
+    </div>
+      
+    {{#if identification}}
+      <button type="submit" style="margin:10px;">Login {{fa-icon "arrow-right"}}</button>
+    {{else}}
+      <span class="button">Enter Login Information to Proceed</span>
+    {{/if}}
+    {{#if loginErrorMessage}}
+    <div>
+      {{fa-icon "user-times"}} {{loginErrorMessage}}
+    </div>
+    {{/if}}
+  </form>
+  <h6>
+    {{#link-to "newUser"}}
+      Create an Account
+    {{/link-to}}
+  </h6>
+</div>

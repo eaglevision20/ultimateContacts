@@ -1,0 +1,14 @@
+<div class="contactbook">
+  <div class="contact-list">
+    <h2>{{user.firstName}}'s Contacts</h2>
+    {{#link-to 'contactbook.create'}}
+      Create New Contact
+    {{/link-to}}
+    {{#each contacts as |contact|}}
+      {{#link-to 'contactbook.contact' contact.id}}
+        <h3>{{contact.firstName}} {{contact.lastName}}</h3>
+      {{/link-to}}
+    {{/each}}
+  </div>
+  {{outlet}}
+</div>
