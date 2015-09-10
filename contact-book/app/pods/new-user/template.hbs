@@ -50,5 +50,11 @@
       <h4>{{error}}</h4>
     {{/each}}
     <button {{action 'createUser'}}>Create My Account</button>
+    {{#if message}}
+      <h4>{{message}}</h4>
+      {{#link-to 'contactbook'}}
+      <button>Log In</button>
+      {{/link-to}}
+    {{/if}}
   </div>
 </div>
