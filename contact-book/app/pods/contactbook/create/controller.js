@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+	needs: ['contactbook'],
+	// contactbook: Ember.computed.alias("controllers.contactbook"),
+
 	firstName: '',
 	lastName: '',
 	imageUrl: '',
@@ -17,6 +20,7 @@ export default Ember.Controller.extend({
 				testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i,
 				testNum = /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/i,
 				formErrors = [],
+				contactbook = this.get('controllers.contactbook'),
 				contact = {
 					user: this.get('session.content.userId'),
 					firstName: this.get('firstName'),
@@ -52,7 +56,7 @@ export default Ember.Controller.extend({
 				formErrors.push('Please Provide a Valid Phone Number');
 			}
 
-
+			debugger
 			this.set('formErrors',formErrors);
 			
 			var onSuccess = function(contact) {
@@ -65,6 +69,7 @@ export default Ember.Controller.extend({
                     'tags': null,
                     'groups': null,
                 });
+                this.transitionToRoute('contactbook');
                 self.send('setMessage', "Contact Created Successfully.");
             };
 
