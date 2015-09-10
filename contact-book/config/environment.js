@@ -35,6 +35,7 @@ module.exports = function(environment) {
       serverTokenEndpoint: 'http://server.brochachos.com/api/users/login'
     }; 
     ENV.APP.host = 'http://server.brochachos.com';
+    ENV.APP.serverTokenEndpoint = 'http://server.brochachos.com/api/users/login';
   }
 
   if (environment === 'test') {
