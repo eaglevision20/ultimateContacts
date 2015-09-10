@@ -69,7 +69,8 @@ export default Ember.Controller.extend({
                     'tags': null,
                     'groups': null,
                 });
-                this.transitionToRoute('contactbook');
+                console.log(contact);
+                contactbook.get('extras').pushObject(contact);
                 self.send('setMessage', "Contact Created Successfully.");
             };
 

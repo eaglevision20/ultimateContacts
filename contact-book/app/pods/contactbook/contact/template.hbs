@@ -1,4 +1,13 @@
 <div class="contact">
+  <div class="image">
+    {{#if model.imageUrl}}
+      <img {{bind-attr src="model.imageUrl"}} style="max-width:50%;">
+    {{else}}
+      <h3>Click Below to Upload an Image</h3>
+    {{/if}}
+    {{#file-upload owner=session.content.userId linkBinding="model.imageUrl"}}
+    {{/file-upload}}
+  </div>
   <div class="field">
     <label class="">First Name</label>
     <div class="">
@@ -23,7 +32,7 @@
       {{input type="text" class="input" placeholder="" value=model.phoneNumber }}
     </div>
   </div>
-  <div class="field">
+  {{!-- <div class="field">
     <label class="">Tags</label>
     <div class="">
       {{input type="text" class="input" placeholder="" value=model.tags }}
@@ -34,7 +43,7 @@
     <div class="">
       {{input type="text" class="input" placeholder="" value=model.groups }}
     </div>
-  </div>
+  </div> --}}
   {{#if formErrors}}
     <h2>Please Fix the following errors</h2>
   {{/if}}

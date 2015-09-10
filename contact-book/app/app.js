@@ -2,6 +2,7 @@ import Ember from 'ember';
 import Resolver from 'ember/resolver';
 import loadInitializers from 'ember/load-initializers';
 import config from './config/environment';
+import Uploader from 'ember-uploader/uploader';
 
 var App;
 

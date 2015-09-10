@@ -2,7 +2,7 @@
   {{#if session.content.access_token}}
       <a {{ action 'logout' }}>Logout</a>
   {{else}}
-    {{#link-to 'login'}}Login{{/link-to}}
+    {{#link-to 'contactbook'}}Login{{/link-to}}
   {{/if}}
   {{#if session.content.siteAdmin}}
     {{#link-to 'admin'}}Site Administration{{/link-to}}

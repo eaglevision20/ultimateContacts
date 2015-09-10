@@ -60,8 +60,9 @@ export default Ember.Controller.extend({
                     'email': null,
                     'phoneNumber': null,
                     'password': null,
+                    'verifyPW': null,
                 });
-                self.send('setMessage', "User Created Successfully.");
+                self.send('setMessage', "User Created Successfully. Please Log in.");
             };
 
             var onFail = function(error) {

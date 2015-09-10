@@ -4,7 +4,16 @@
     {{#link-to 'contactbook.create'}}
       Create New Contact
     {{/link-to}}
-    {{#each contacts as |contact|}}
+    <h3>Sort by {{view Ember.Select class="drop-down" value=selectedC content=contactSort}}</h3>
+    {{#each activeContacts as |contact|}}
+      {{#link-to 'contactbook.contact' contact.id}}
+        <h3>{{contact.firstName}} {{contact.lastName}}</h3>
+      {{/link-to}}
+    {{/each}}
+    {{#if extras}}
+    <h4>Recently Added</h4>
+    {{/if}}
+    {{#each extras as |contact|}}
       {{#link-to 'contactbook.contact' contact.id}}
         <h3>{{contact.firstName}} {{contact.lastName}}</h3>
       {{/link-to}}
