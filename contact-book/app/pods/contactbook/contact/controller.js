@@ -60,7 +60,6 @@ export default Ember.Controller.extend({
             };
 
             var onFail = function(error) {
-                console.log(error.responseJSON.invalidAttributes)
                 self.send('setMessage', "Contact failed to save. Please double check all fields are filled out.");
             };
 
