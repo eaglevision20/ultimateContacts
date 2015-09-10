@@ -30,6 +30,13 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
+  if ( environment === 'staging'){
+    ENV['simple-auth-oauth2'] = {
+      serverTokenEndpoint: 'http://server.brochachos.com/api/users/login'
+    }; 
+    ENV.APP.host = 'http://server.brochachos.com';
+  }
+
   if (environment === 'test') {
     // Testem prefers this...
     ENV.baseURL = '/';
