@@ -24,9 +24,17 @@ export default Ember.Controller.extend({
 					imageUrl: this.get('imageUrl'),
 					email: this.get('email'),
 					phoneNumber: this.get('phoneNumber'),
-					tags: this.get('tags').split(" ,"),
-					groups: this.get('groups').split(" ,")
+					tags: [],
+					groups: []
 				};
+
+			if(!Ember.isEmpty(this.get('tags'))){
+				contact.tags = this.get('tags').split(" ,");
+			}
+			
+			if(!Ember.isEmpty(this.get('groups'))){
+				contact.groups = this.get('groups').split(" ,");
+			}
 
 			if(contact.firstName.length < 2){
 				formErrors.push('Please Provide a First Name');

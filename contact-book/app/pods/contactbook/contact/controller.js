@@ -1,13 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	firstName: '',
-	lastName: '',
-	imageUrl: '',
-	email: '',
-	phoneNumber: '',
-	tags: [],
-	groups: [],
 	formErrors: [],
 	message: null,
 
@@ -19,15 +12,21 @@ export default Ember.Controller.extend({
 				formErrors = [],
 				contact = {
 					user: this.get('session.content.userId'),
-					firstName: this.get('firstName'),
-					lastName: this.get('lastName'),
-					imageUrl: this.get('imageUrl'),
-					email: this.get('email'),
-					phoneNumber: this.get('phoneNumber'),
-					tags: this.get('tags').split(" ,"),
-					groups: this.get('groups').split(" ,")
+					firstName: this.get('model.firstName'),
+					lastName: this.get('model.lastName'),
+					imageUrl: this.get('model.imageUrl'),
+					email: this.get('model.email'),
+					phoneNumber: this.get('model.phoneNumber'),
+					tags: [],
+					groups: []
 				};
 
+			if(!Ember.isEmpty(this.get('model.tags'))){
+				this.set('model.tags', this.get('model.tags').split(" ,"));
+			}
+			if(!Ember.isEmpty(this.get('model.groups'))){
+				this.set('model.groups', this.get('model.groups').split(" ,"));
+			}
 			if(contact.firstName.length < 2){
 				formErrors.push('Please Provide a First Name');
 			}
@@ -68,8 +67,13 @@ export default Ember.Controller.extend({
 			if(!Ember.isEmpty(formErrors)){
 				return;
 			} else {
-				this.store.createRecord('contact',contact).save().then(onSuccess,onFail);
+				this.get('model').save().then(onSuccess,onFail);
 			}
+		},
+
+		deleteContact: function () {
+			this.get('model').destroyRecord();
+			this.transitionToRoute('contactbook');
 		},
 
 		setMessage: function (message) {

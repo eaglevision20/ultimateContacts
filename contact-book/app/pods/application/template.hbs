@@ -1,19 +1,13 @@
-{{#if session.content.access_token}}
-  <li>
-    <a {{ action 'invalidateSession' }}>Logout</a>
-  </li>
-  {{#link-to 'contactbook'}}
-    See My Contacts
-  {{/link-to}}
-{{else}}
-  <li>
-  {{#link-to 'login'}}Login{{/link-to}}
-  </li>
-{{/if}}
-{{#if session.content.siteAdmin}}
-  <li>
-  {{#link-to 'admin'}}Site Administration{{/link-to}}
-  </li>
-{{/if}}
-
-{{outlet}}
+<header>
+  {{#if session.content.access_token}}
+      <a {{ action 'logout' }}>Logout</a>
+  {{else}}
+    {{#link-to 'login'}}Login{{/link-to}}
+  {{/if}}
+  {{#if session.content.siteAdmin}}
+    {{#link-to 'admin'}}Site Administration{{/link-to}}
+  {{/if}}
+</header>
+<div class="main">
+  {{outlet}}
+</div>
